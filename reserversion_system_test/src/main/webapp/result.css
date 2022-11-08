@@ -1,0 +1,21 @@
+body{
+	background-color:red;
+}
+.back{
+
+    background-color: white;
+    border: 1px solid black;
+}
+.back:hover{
+    border:2px solid green;
+    box-shadow: 4px 4px 13px -1px rgba(0,0,0,0.75);
+}
+.row_padding{
+   padding-top: 10px;
+   padding-left: 30px;
+
+}
+.btn-class{
+    width:150px;
+    height:40px;
+}
