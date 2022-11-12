@@ -11,6 +11,7 @@ public class UserDbUtil {
 	private static Connection con = null;
 	private static Statement st = null;
 	private static ResultSet rs = null;
+	private static boolean isSuccess;
 
 	public static boolean registerUser(String fname, String lname, String email, String phone, String pwd) {
 
@@ -97,4 +98,68 @@ public class UserDbUtil {
 
 		return isLoggedIn;
 	}
+	
+//	Update User Profile
+	
+	public static boolean updateProfile(int id,String fname , String lname , String email , String phone , String password) {
+		
+		try {
+			con = DBConnect.getConnection();
+			st = con.createStatement();
+			
+			String sql = "update users set fname = '"+fname+"' ,lname = '"+lname+"' , email = '"+email+"' , "
+					+ "phone= '"+phone+"' , password = '"+password+"'"
+					+"where id = '"+id+"'";
+			
+			
+			int rs = st.executeUpdate(sql);
+			
+			if(rs > 0) {
+				isSuccess = true;
+			}
+			else {
+				isSuccess = false;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return isSuccess;
+		
+	}
+	
+	//Delete User Profile
+	
+	public static boolean deleteUser(String id) {
+		
+		int intId = Integer.parseInt(id);
+		
+		try {
+			
+			con = DBConnect.getConnection();
+			st = con.createStatement();
+			
+			String sql = "DELETE FROM users WHERE id ='"+intId+"'";
+			int rs =st.executeUpdate(sql);
+			
+			if(rs > 0) {
+				isSuccess = true;
+			}
+			else {
+				isSuccess = false;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		
+		return isSuccess;
+		
+		
+	}
+
+
 }

@@ -1,4 +1,4 @@
-package com.system.userProfile;
+package com.system.UpdateBusDetails;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.ServletException;
@@ -9,30 +9,32 @@ import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
+import com.system.Index.Bus;
+import com.system.Index.BusDBUtil;
+
 /**
- * Servlet implementation class userProfile
+ * Servlet implementation class fetchAllBusDetails
  */
-@WebServlet("/userProfileServlet")
-public class UserProfileServlet extends HttpServlet {
+@WebServlet("/fetchAllDetails")
+public class fetchAllBusDetails extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		
-		List<updateUser> userDetailsList = userUpdateDbUtil.fetchUserDetails();
 		
 		RequestDispatcher dispatcher = null;
 		
-		req.setAttribute("details", userDetailsList);
+		List<Bus> busDetails = UpdateBusDetailsDbUtil.fetchBusDetails();
 		
-		dispatcher = req.getRequestDispatcher("userprofile.jsp");
-		
-		dispatcher.forward(req, resp);
+		if(!(busDetails.isEmpty())){
+			
+			req.setAttribute("busDetails", busDetails);
+			dispatcher = req.getRequestDispatcher("busUpdateDetails.jsp");
+			dispatcher.forward(req, resp);
+		}
 	}
+       
 
-
-
+	
 }

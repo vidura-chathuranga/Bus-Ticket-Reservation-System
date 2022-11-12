@@ -61,4 +61,45 @@ public class UpdateBusDetailsDbUtil {
 		
 		return busdetails;
 	}
+	
+	public static boolean updateBusDetails(String bid, String noplate, String bname, String facilities,String seatcount, String bseatcount, String routeid) {
+		
+		boolean isUpdated = false;
+		Connection con = null;
+		Statement st = null;
+		
+		int ibid = intConverter(bid);
+		int iseatcount = intConverter(seatcount);
+		int ibseatcount = intConverter(bseatcount);
+		int irouteid = intConverter(routeid);
+		
+		try {
+			
+			con = DBConnect.getConnection();
+			
+			st = con.createStatement();
+			
+			String sql = "UPDATE busdetails SET bus_id = '"+ibid+"', bus_no_plate = '"+noplate+"', bus_name = '"+bname+"',facilities = '"+facilities+"', seatcount = '"+iseatcount+"', bookedSeatCount = '"+ibseatcount+"', route_id = '"+irouteid+"' where bus_id = '"+ibid+"'";
+			
+			int rs = st.executeUpdate(sql);
+			
+			if( rs > 0) {
+				
+				isUpdated = true;
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		return isUpdated;
+	}
+	
+	private static int intConverter(String value) {
+		int intValue;
+		
+		intValue = Integer.parseInt(value);
+		
+		return intValue;
+	}
 }
