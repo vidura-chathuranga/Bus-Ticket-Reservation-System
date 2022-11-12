@@ -10,3 +10,8 @@ Vidura Chathuranga(Me) - Home Page, Bus Search Result Page, Ticket Booking Page,
 Madushi Munaweera - Route Table (add/update/delete) Page(One of Admin Profile Function), User Feedback Page
 Vinnath - User Profile Page(update/details/show) details, Contact Us Page
 Inosh - User Registration, Admin Profile(edit/delete)
+
+vidura - https://www.linkedin.com/in/vidura-chathuranga/
+Madushi - https://www.linkedin.com/in/madushi-munaweera/
+Vinnath  - https://www.linkedin.com/in/vinnath-pathirana/
+Inosh - https://www.linkedin.com/in/inosh-niwantha-052748215/
