@@ -142,7 +142,8 @@ session.getAttribute("name")e") %>
 				<div class="col text-center">
 					<button type="submit" class="btn btn-success mt-4 findBuses">Find
 						Buses</button>
-					<a href="#" class="any-help"><p class="text-end any-help">Need
+					<a href="feedback.jsp" class="any-help"><p class="text-start any-help">Give Your FeedBack</p></a>	
+					<a href="form.jsp" class="any-help"><p class="text-end any-help">Need
 							any help?</p></a>
 				</div>
 			</div>

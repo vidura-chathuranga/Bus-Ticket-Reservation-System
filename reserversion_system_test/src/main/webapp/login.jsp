@@ -26,6 +26,7 @@
 <body>
 	
 	<input type="hidden" id="status" value= <%= request.getAttribute("status") %>>
+	<input type="hidden" id="isProfileDeleted" value= <%= request.getAttribute("isProfileDeleted") %>>
 	<section class="form my-5">
 		<div class="container">
 			<div class="row g-0">
@@ -66,6 +67,7 @@
 							<p class="mt-1">
 								Don't have an account<a href="register.jsp"> Register here</a>
 							</p>
+							<p style="margin-top:-10px;">Are you an Admin?<a href="AdminLogin.jsp">Login here</a></p>
 					</form>
 				</div>
 			</div>
@@ -76,9 +78,14 @@
 
     <script type="text/javascript">
 		var status = document.getElementById("status").value;
-	
+		var pdelete = document.getElementById("isProfileDeleted").value;
+		
 		if(status == 'failed'){
 			swal("Oops!","You have entered Wrong Details","error");
+		}
+		
+		if(pdelete == "deleted"){
+			swal("Deleted!","Your Profile is Deleted Successfully","success");
 		}
 	</script>
 </html>

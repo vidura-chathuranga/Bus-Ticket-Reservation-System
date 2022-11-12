@@ -1,0 +1,19 @@
+.tableEdit{
+    margin-top: 30px;
+    padding-top: 50px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    background-color: white;
+    box-shadow: 1px 13px 60px 8px rgba(0,0,0,0.75);
+    border-radius: 30px;
+}
+body{
+    background-color: rgb(219, 226, 226);
+    background-image: url('map.webp');
+    
+}
+
+/* img{
+    -webkit-filter: blur(500px);
+    filter: blur(500px);
+} */

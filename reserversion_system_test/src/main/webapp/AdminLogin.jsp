@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,9 +14,14 @@
 
     <!-- CSS Link -->
     <link rel="stylesheet" href="AdminLogin.css">
+    
+    <!-- swal library insert -->
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<link rel="stylesheet" href="alert/dist/sweetalert.css">
 </head>
 <body>
     
+    <input type="hidden" id="status" value= <%= request.getAttribute("status") %>>
     <section class="form my-5 ">
         <div class="container">
             <div class="row g-0">
@@ -26,9 +33,10 @@
 
                     <h1 class="font-weight-bold pt-5">QuickLiner<h2>T R A N S P O R T S</h2></h1>
                     <h4 class="pb-2 pt-5">Sign into your account (As Admin)</h4>
-
-                    <form action="Login" method="post">
-
+			
+                    <form action="adminLogin" method="post">
+						
+						
                         <div class="form-row">
                             <div class="col-lg-7">
                                 <input type="email" name="email" placeholder="lisa22@gmail.com" class="form-control my-3 py-3">
@@ -47,17 +55,25 @@
 
                         <div class="form-row">
                             <div class="col-lg-7">
-                                <button type="button" class="btn1 mt-3 mb-5">Login</button>
+                                <button type="submit" class="btn1 mt-3 mb-5">Login</button>
                             </div>
                     </div>
 
                     <a href="#">Forget Password</a>
-                    <p class="mt-1">Don't have an account<a href="AdminReg.jsp"> Register here</a></p>
-                    </form>
+                    <p class="mt-1">Are you an User ? <a href="login.jsp"> Login here</a></p>
+                  </form>
                 </div>
             </div>
             
         </div>
     </section>
+    
+    <script type="text/javascript">
+		var status = document.getElementById("status").value;
+	
+		if(status == 'failed'){
+			swal("Oops!","You have entered Wrong Details","error");
+		}
+	</script>
 </body>
 </html>
